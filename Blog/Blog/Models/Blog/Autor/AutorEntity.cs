@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Blog.Models.Blog.Postagem
+namespace Blog.Models.Blog.Postagem.Autor
 {
-    public class Postagem
+    public class AutorEntity
     {
+        public string Nome;
     }
 }
