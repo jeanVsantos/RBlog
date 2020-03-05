@@ -7,9 +7,12 @@ namespace Blog.Models.Blog.Postagem.Revisao.Comentario
 {
     public class ComentarioEntity
     {
+
+        public int Id { get; set; }
         public RevisaoEntity Revisao;
-        public string Texto;
-        public string Autor;
+        public string Texto { get; set; }
+        public string Autor { get; set; }
         public DateTime Data;
+
     }
 }
