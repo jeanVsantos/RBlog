@@ -22,7 +22,7 @@ namespace Blog
         public DbSet<RevisaoEntity> revisao { get; set; }
         public DbSet<ClassificacaoEntity> classificacao  { get; set; }
         public DbSet<ComentarioEntity> comentario  { get; set; }
-     
+
 
 
 
@@ -32,6 +32,21 @@ namespace Blog
             base.OnConfiguring(optionsBuilder);
 
             optionsBuilder.UseMySql("Server=localhost;User=root; password=JEan8451; Database = pwablog");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<PostagemEtiquetaEntity>().ToTable("PostagensEtiquetas");
+
+            modelBuilder.Entity<PostagemEtiquetaEntity>()
+                .HasOne(pe => pe.Postagem)
+                .WithMany(p => p.PostagensEtiquetas);
+
+            modelBuilder.Entity<PostagemEtiquetaEntity>()
+                .HasOne(pe => pe.Etiqueta)
+                .WithMany(p => p.PostagensEtiquetas);
         }
 
     }

@@ -13,7 +13,7 @@ namespace Blog.Models.Blog.Postagem.Revisao
         public string Texto { get; set; }
         public int Versao { get; set; }
         public PostagemEntity Postagem;
-        public DateTime Data;
+        public DateTime DataCriacao { get; set; }
 
     }
 }
